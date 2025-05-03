@@ -30,24 +30,20 @@
     const datetime = formatter.format(now);
     document.getElementById("datetime").innerText = datetime;
 
-    const name = "林詩翰"; // 可動態改變的姓名
+    const name = "林詩翰";
 
-    // 當頁面載入時自動提交資料到 Google 表單
-    fetch('https://script.google.com/macros/s/AKfycbzSYPifeBOFGEKslByRzXJtgp8n-r1uV1P1rTFQTsN90fy6Rc-IEjA1P-pFWo-LXHW3/exec', {
-      method: 'POST',
+    // 自動提交到 Google Apps Script Web App
+    fetch("https://script.google.com/macros/s/AKfycbzSYPifeBOFGEKslByRzXJtgp8n-r1uV1P1rTFQTsN90fy6Rc-IEjA1P-pFWo-LXHW3/exec", {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
       body: new URLSearchParams({
-        'name': name,
-        'datetime': datetime
+        "entry.1095179229": name,
+        "entry.1287161912": datetime
       })
-    })
-    .then(response => {
-      if (response.ok) {
-        console.log("打卡成功！");
-      } else {
-        console.log("打卡失敗！");
-      }
-    })
-    .catch(error => console.error("錯誤:", error));
+    });
   </script>
 </body>
 </html>

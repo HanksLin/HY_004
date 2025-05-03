@@ -33,17 +33,18 @@
     const name = "林詩翰";
 
     // 自動提交到 Google Apps Script Web App
-    fetch("https://script.google.com/macros/s/AKfycbzSYPifeBOFGEKslByRzXJtgp8n-r1uV1P1rTFQTsN90fy6Rc-IEjA1P-pFWo-LXHW3/exec", {
-      method: "POST",
-      mode: "no-cors",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      body: new URLSearchParams({
-        "entry.1095179229": name,
-        "entry.1287161912": datetime
-      })
-    });
+    fetch("https://docs.google.com/forms/d/1XXry53xN2_jmIc9QjETlshRjMq525poNajh4vdC4vMw/formResponse", {
+  method: "POST",
+  mode: "no-cors",
+  headers: {
+    "Content-Type": "application/x-www-form-urlencoded"
+  },
+  body: new URLSearchParams({
+    "entry.1095179229": name,
+    "entry.1287161912": datetime
+  })
+});
+
   </script>
 </body>
 </html>

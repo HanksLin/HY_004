@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>掃描結果</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    h1 {
+      font-size: 32px;
+    }
+    p {
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <h1>您好，林詩翰</h1>
+  <p>您於 <span id="datetime"></span> 掃描了此 QR code</p>
+
+  <script>
+    const now = new Date();
+    const formatter = new Intl.DateTimeFormat('zh-TW', {
+      year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', second: '2-digit'
+    });
+    document.getElementById("datetime").innerText = formatter.format(now);
+  </script>
+</body>
+</html>
